@@ -72,6 +72,6 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "ansible/bootstrap.yml"
     ansible.inventory_path = "ansible/hosts"
     ansible.limit = "all"
-    ansible.sudo = true
+    ansible.become = true
   end
 end
