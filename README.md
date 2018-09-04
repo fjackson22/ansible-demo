@@ -27,6 +27,21 @@ Some software must be installed prior to building an environment:
 - [virtualbox](https://www.virtualbox.org/)
 - [vagrant](https://vagrantup.com/)
 
+# tl;dr
+
+If you just want to get started: 
+
+```
+mkdir demo
+cd demo
+git clone https://github.com/gswallow/ansible-demo.git
+cd ansible-demo
+git submodule update --init
+vagrant up
+```
+
+Or read on...
+
 # Getting this repo
 
 After creating your own, [free Github account](https://github.com/join), you will want to 
