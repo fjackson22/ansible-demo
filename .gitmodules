@@ -1,0 +1,3 @@
+[submodule "php-example"]
+	path = php-example
+	url = https://github.com/banago/simple-php-website.git
