@@ -1,32 +1,8 @@
 ---
-  - name: "Install git-core"
-    package:
-      name: git-core
-      state: present
-
   - name: "Install serverspec"
     package:
       name: ruby-serverspec
       state: present
-
-  - name: "Install nginx"
-    package:
-      name: nginx
-      state: present
-
-  - name: "Drop index file"
-    copy:
-      content: |
-        <html>
-        <head>
-        <title>Automation rocks</title>
-        </head>
-        <body>
-        <h1>Automation for the People</h1>
-        <!-- yeah I'm not a web designer -->
-        </body>
-        </html>
-      dest: /var/www/html/index.html
 
   - name: "Check for /tmp/ansible"
     stat: path=/tmp/ansible
@@ -41,10 +17,14 @@
     args:
       chdir: /tmp/ansible/ansible
     when: tmp_ansible.stat.exists
+    register: serverspec
 
   - name: "Run serverspec in vagrant"
     shell: rake spec:localhost
     args:
       chdir: /vagrant/ansible
     when: tmp_vagrant.stat.exists
+    register: serverspec
 
+  - name: "Display results from serverspec"
+    debug: "msg=`{{ serverspec.stdout }}`"

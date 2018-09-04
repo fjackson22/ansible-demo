@@ -1,0 +1,11 @@
+---
+  - name: "Clone 2048 game"
+    git:
+      repo: "https://github.com/gabrielecirulli/2048.git"
+      dest: "/tmp/demo"
+      version: master
+      depth: 1
+
+  - name: "Copy 2048 from /tmp/demo to /var/www/html"
+    shell:
+      cmd: "cp -r /tmp/demo/. /var/www/html"

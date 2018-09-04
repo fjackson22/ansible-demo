@@ -22,5 +22,5 @@ describe port(80) do
 end
 
 describe file('/var/www/html/index.html') do
-  its(:content) { should match /Automation for the People/ }
+  its(:content) { should match /<title>2048<\/title>/ }
 end
