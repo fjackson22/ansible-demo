@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: gather facts
+      setup:
+        gather_subset: all
+      register: gathered_facts
+
+    - name: write facts
+      debug:
+        msg: "{{ gathered_facts }}"
